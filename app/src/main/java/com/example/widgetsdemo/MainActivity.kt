@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         val seekBarLabel = findViewById<TextView>(R.id.seek_bar_label)
 
         // Listen seekBar change events: There are three override methods that must be implemented
-        // though you may not necessarily use the last two
+        // though you may not necessarily use the last two methods (so do not delete them)
         findViewById<SeekBar>(R.id.seek_bar_age).setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 // As the seekbar moves, the progress value is obtained and displayed in our seekBar label
@@ -88,15 +88,26 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun checkBoxClick(view: View) {
-        // check which checkbox was Selected or Unselected
+        // check which checkbox was Selected or Deselected
         if (view is CheckBox) {
-            if (view.isChecked) {
-                // Selected car - do something
-            }
-            else {
-                // Unselected car - do something
-            }
+            val checked: Boolean = view.isChecked
 
+            when (view.id) {
+                R.id.car -> {
+                    if (checked) {
+                        // Checked car - do something
+                    } else {
+                        // Unchecked car - do something
+                    }
+                }
+                R.id.bus -> {
+                    if (checked) {
+                        // Checked bus - do something
+                    } else {
+                        // Unchecked bus - do something
+                    }
+                }
+            }
         }
     }
 
